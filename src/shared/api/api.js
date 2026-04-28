@@ -10,7 +10,14 @@ const axiosAuth = axios.create({
         "Content-Type": "application/json",
     }
 });
- 
+
+const axiosAdmin = axios.create({
+    baseURL: import.meta.env.VITE_ADMIN_URL,
+    timeout: 8000,
+    headers:{
+        "Content-Type": "application/json",
+    }
+});
 
 axiosAdmin.interceptors.request.use((config) => {
   // Tag del cliente para que el interceptor de refresh reintente
